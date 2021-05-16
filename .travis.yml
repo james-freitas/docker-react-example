@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jamesfrj/docker-react-example -f Dockerfile.dev .
+
+script:
+  - docker run jamesfrj/docker-react-example npm run test -- --coverage
